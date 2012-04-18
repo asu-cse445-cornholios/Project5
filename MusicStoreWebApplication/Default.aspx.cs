@@ -13,5 +13,43 @@ namespace MusicStoreWebApplication
         {
 
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            MusicServiceProxy.MusicServiceClient client = new MusicServiceProxy.MusicServiceClient();
+            MusicServiceProxy.ReleaseSearch search = new MusicServiceProxy.ReleaseSearch();
+
+            if (ddlSearchType.Text == "Artist")
+            {
+                search.ArtistName = txtSearch.Text.Replace(" ", "\\ ");
+            }
+            else if (ddlSearchType.Text == "Album Name")
+            {
+                search.ReleaseName = txtSearch.Text.Replace(" ", "\\ ");
+            }
+
+            MusicServiceProxy.ReleaseResult[] result = client.findReleases(search);
+
+            AlbumWebControl album;
+
+
+            List<string> addedSongs = new List<string>();
+            int numAdded = 0;
+            foreach (MusicServiceProxy.ReleaseResult r in result)
+            {
+                if (numAdded > 20) break;
+                if ((int.Parse(r.Score) > 50) && !addedSongs.Contains(r.Title))
+                {
+                    album = (AlbumWebControl)LoadControl("~/AlbumWebControl.ascx");
+                    album.AlbumName = r.Title;
+                    album.Price = (double.Parse(r.Score)/10).ToString("C0");
+                    PlaceHolder1.Controls.Add(album);
+                    addedSongs.Add(r.Title);
+                    numAdded++;
+                }
+  
+            }
+           
+        }
     }
 }

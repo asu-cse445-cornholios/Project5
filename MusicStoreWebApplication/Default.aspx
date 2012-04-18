@@ -2,16 +2,22 @@
     CodeBehind="Default.aspx.cs" Inherits="MusicStoreWebApplication._Default" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+    <style type="text/css">
+    </style>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2>
-        Welcome to ASP.NET!
+    <h2 class="style1" align="center">
+        Search&nbsp;
+        <asp:DropDownList ID="ddlSearchType" runat="server" Height="23px" Width="115px">
+            <asp:ListItem>Artist</asp:ListItem>
+            <asp:ListItem>Album Name</asp:ListItem>
+        </asp:DropDownList>
+&nbsp;<asp:TextBox ID="txtSearch" runat="server" Width="279px"></asp:TextBox>
+&nbsp;<asp:Button ID="btnSearch" runat="server" onclick="btnSearch_Click" Text="Go" />
     </h2>
-    <p>
-        To learn more about ASP.NET visit <a href="http://www.asp.net" title="ASP.NET Website">www.asp.net</a>.
+    <p class="style1">
+        &nbsp;
+        <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
     </p>
-    <p>
-        You can also find <a href="http://go.microsoft.com/fwlink/?LinkID=152368&amp;clcid=0x409"
-            title="MSDN ASP.NET Docs">documentation on ASP.NET at MSDN</a>.
-    </p>
+    <span id="MySpan" runat="server"/>
 </asp:Content>
