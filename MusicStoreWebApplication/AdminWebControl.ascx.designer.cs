@@ -10,7 +10,7 @@
 namespace MusicStoreWebApplication {
     
     
-    public partial class AdministrationPage {
+    public partial class AdminWebControl {
         
         /// <summary>
         /// UserNameLabel control.
@@ -22,13 +22,13 @@ namespace MusicStoreWebApplication {
         protected global::System.Web.UI.WebControls.Label UserNameLabel;
         
         /// <summary>
-        /// acctName control.
+        /// user control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox acctName;
+        protected global::System.Web.UI.WebControls.TextBox user;
         
         /// <summary>
         /// UserNameRequired control.
@@ -49,13 +49,13 @@ namespace MusicStoreWebApplication {
         protected global::System.Web.UI.WebControls.Label PasswordLabel;
         
         /// <summary>
-        /// acctPassword control.
+        /// pass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox acctPassword;
+        protected global::System.Web.UI.WebControls.TextBox pass;
         
         /// <summary>
         /// PasswordRequired control.
@@ -67,21 +67,57 @@ namespace MusicStoreWebApplication {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordRequired;
         
         /// <summary>
-        /// LoginButton control.
+        /// PasswordLabel0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LoginButton;
+        protected global::System.Web.UI.WebControls.Label PasswordLabel0;
         
         /// <summary>
-        /// validatePlaceHolder control.
+        /// confirmPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder validatePlaceHolder;
+        protected global::System.Web.UI.WebControls.TextBox confirmPass;
+        
+        /// <summary>
+        /// PasswordRequired0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordRequired0;
+        
+        /// <summary>
+        /// PasswordRequired1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordRequired1;
+        
+        /// <summary>
+        /// CreateButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CreateButton;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
     }
 }

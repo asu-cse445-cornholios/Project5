@@ -195,11 +195,13 @@ fieldset
     margin: 1em 0px;
     padding: 1em;
     border: 1px solid #ccc;
+    width: 372px;
 }
 
 fieldset p 
 {
     margin: 2px 12px 10px 10px;
+    width: 351px;
 }
 
 fieldset.login label, fieldset.register label, fieldset.changePassword label
@@ -227,13 +229,12 @@ input.textEntry
 
 input.passwordEntry 
 {
-    width: 320px;
     border: 1px solid #ccc;
 }
 
 div.accountInfo
 {
-    width: 42%;
+    width: 53%;
 }
 
 /* MISC  
@@ -291,4 +292,5 @@ div.accountInfo
 {
     text-align: right;
     padding-right: 10px;
+    width: 230px;
 }
