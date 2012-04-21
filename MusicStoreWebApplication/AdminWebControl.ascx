@@ -2,7 +2,7 @@
 <style type="text/css">
     div.accountInfo
 {
-    width: 74%;
+    width: 63%;
 }
 
 p
@@ -17,7 +17,8 @@ fieldset
     margin: 1em 0px;
     padding: 1em;
     border: 1px solid #ccc;
-        width: 372px;
+        width: 402px;
+        height: 147px;
     }
 
 legend 
@@ -63,51 +64,64 @@ input.passwordEntry
         margin-right: 0px;
     }</style>
 
-<div class="accountInfo">
-    <p>
-        Invalid Password or Username. Please try again or create new account below.</p>
-    <fieldset class="login">
-        <legend>Create New User</legend>
-        <p>
-            <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Username:</asp:Label>
-            <asp:TextBox ID="user" runat="server" CssClass="textEntry" 
-                ontextchanged="user_TextChanged"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" 
+    <asp:Panel ID="LoginPanel" runat="server" BackColor="#E9EBFE" 
+    Visible="False">
+        <div class="accountInfo" style="background-color: #E9EBFE; margin-left: 111px;">
+            <p>
+                Please enter your username and password.
+            </p>
+            <fieldset class="login">
+                <legend>Account Information</legend>
+                <p>
+                    <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="acctName">Username:</asp:Label>
+                    <asp:TextBox ID="acctName" runat="server" CssClass="textEntry"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="acctName" 
                              CssClass="failureNotification" 
-                ErrorMessage="User Name is required." ToolTip="User Name is required." 
+                    ErrorMessage="User Name is required." ToolTip="User Name is required." 
                              ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
-        </p>
-        <p>
-            <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password" 
-                Height="24px" Width="352px">Password:</asp:Label>
-            <asp:TextBox ID="pass" runat="server" CssClass="passwordEntry" 
+                </p>
+                <p>
+                    <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="acctPassword" 
+                    Height="24px" Width="352px">Password:</asp:Label>
+                    <asp:TextBox ID="acctPassword" runat="server" CssClass="passwordEntry" 
                             TextMode="Password" Width="320px"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" 
+                    <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="acctPassword" 
                              CssClass="failureNotification" 
-                ErrorMessage="Password is required." ToolTip="Password is required." 
+                    ErrorMessage="Password is required." ToolTip="Password is required." 
                              ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
-        </p>
-        <p>
-            <asp:Label ID="PasswordLabel0" runat="server" AssociatedControlID="Password" 
-                Height="24px" Width="352px">Confirm Password:</asp:Label>
-            <asp:TextBox ID="confirmPass" runat="server" CssClass="passwordEntry" 
-                            TextMode="Password" Width="320px"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="PasswordRequired0" runat="server" ControlToValidate="Password" 
-                             CssClass="failureNotification" 
-                ErrorMessage="Password is required." ToolTip="Password is required." 
-                             ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
-            <asp:RequiredFieldValidator ID="PasswordRequired1" runat="server" ControlToValidate="Password" 
-                             CssClass="failureNotification" 
-                ErrorMessage="Password is required." ToolTip="Password is required." 
-                             ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
-        </p>
-    </fieldset><p class="submitButton" align="left" dir="ltr">
-        <asp:Button ID="CreateButton" runat="server" CommandName="Create" Text="Create User" 
-                        ValidationGroup="CreateUserValidationGroup" 
-            onclick="LoginButton_Click"/>
-    </p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label1" runat="server" Font-Bold="True"></asp:Label>
-    </p>
-</div>
+                </p>
+            </fieldset><p class="submitButton" align="left" dir="rtl">
+                <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Log In" 
+                        ValidationGroup="LoginUserValidationGroup" 
+                onclick="LoginButton_Click"/>
+            </p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Label ID="Label" runat="server"></asp:Label>
+            </p>
+        </div>
+</asp:Panel>
+<asp:Panel ID="DeleteUser" runat="server" Visible="False" BackColor="#E9EBFE">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:Panel ID="Panel1" runat="server" BackColor="#E9EBFE" Height="188px" 
+        Width="411px" style="margin-left: 30px">
+        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="Large" 
+            Text="Users:"></asp:Label>
+        <br />
+        <asp:Label ID="outputLabel" runat="server"></asp:Label>
+        <br />
+        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="enterLabel" runat="server" Text="Enter User to Delete:"></asp:Label>
+        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="deleteBox" runat="server" Width="124px"></asp:TextBox>
+        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="DeleteBtn" runat="server" Text="Delete User" 
+            onclick="DeleteBtn_Click" />
+        <br />
+    </asp:Panel>
+</asp:Panel>
+
+    
 

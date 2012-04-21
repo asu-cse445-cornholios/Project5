@@ -13,31 +13,5 @@ namespace MusicStoreWebApplication
         {
 
         }
-
-        protected void LoginButton_Click(object sender, EventArgs e)
-        {
-            passwordCrypt.ServiceSoapClient client = new passwordCrypt.ServiceSoapClient();
-
-            string accountN = acctName.Text;
-            string accountP = acctPassword.Text;
-
-            string encryptPass = client.Encrypt(accountP);
-
-            //check if accountN and encryptPass exist in the DB
-            //string decryptPass = client.Decrypt(dbPassword);
-            /*if(accountN == dbName && encryptPass == decryptPass)
-             * {
-             *     //redirect to default page or shopping cart
-             * }
-             * else
-             * {*/
-                    AdminWebControl admin;
-                    admin = (AdminWebControl)LoadControl("~/AdminWebControl.ascx");
-                    //admin.UserName = accountN;
-                    //admin.Password = encryptPass;
-                    validatePlaceHolder.Controls.Add(admin);
-             /* }
-            */
-        }
     }
 }
