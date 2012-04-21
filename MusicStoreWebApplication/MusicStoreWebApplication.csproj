@@ -60,7 +60,7 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Administration.aspx" />
     <Content Include="AlbumWebControl.ascx" />
-    <Content Include="RMA.aspx" />
+    <Content Include="Account\RMA.aspx" />
     <None Include="Service References\MusicServiceProxy\configuration91.svcinfo" />
     <None Include="Service References\MusicServiceProxy\configuration.svcinfo" />
     <None Include="Service References\MusicServiceProxy\MusicStoreWebApplication.MusicServiceProxy.ArtistResult.datasource">
@@ -85,6 +85,16 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\RMASvc\MusicStoreWebApplication.RMASvc.RMAticket.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RMASvc\reqdServices.disco" />
+    <None Include="Service References\RMASvc\configuration91.svcinfo" />
+    <None Include="Service References\RMASvc\configuration.svcinfo" />
+    <None Include="Service References\RMASvc\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="ShoppingCart.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -99,6 +109,19 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <None Include="Service References\RMASvc\ReqdServices.wsdl" />
+    <None Include="Service References\RMASvc\reqdServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RMASvc\reqdServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RMASvc\reqdServices2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RMASvc\reqdServices3.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -161,14 +184,19 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RMA.aspx.cs">
+    <Compile Include="Account\RMA.aspx.cs">
       <DependentUpon>RMA.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RMA.aspx.designer.cs">
+    <Compile Include="Account\RMA.aspx.designer.cs">
       <DependentUpon>RMA.aspx</DependentUpon>
     </Compile>
     <Compile Include="Service References\MusicServiceProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\RMASvc\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -206,6 +234,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\MusicServiceProxy\" />
+    <WCFMetadataStorage Include="Service References\RMASvc\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\MusicServiceProxy\MusicService.wsdl" />
