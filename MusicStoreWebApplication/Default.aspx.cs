@@ -38,11 +38,16 @@ namespace MusicStoreWebApplication
             foreach (MusicServiceProxy.ReleaseResult r in result)
             {
                 if (numAdded > 20) break;
-                if ((int.Parse(r.Score) > 50) && !addedSongs.Contains(r.Title))
+                if ((int.Parse(r.Score) > 50) &&
+                    !addedSongs.Contains(r.Title) &&
+                    (r.Type == "Album"))
                 {
                     album = (AlbumWebControl)LoadControl("~/AlbumWebControl.ascx");
                     album.AlbumName = r.Title;
                     album.Price = (double.Parse(r.Score)/10).ToString("C0");
+                    album.Date = r.Date;
+                    album.NumTracks = r.TrackCount;
+                    album.Artist = r.Artist;
                     PlaceHolder1.Controls.Add(album);
                     addedSongs.Add(r.Title);
                     numAdded++;

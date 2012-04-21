@@ -68,9 +68,13 @@
   <xs:element name="ArrayOfReleaseResult" nillable="true" type="tns:ArrayOfReleaseResult" />
   <xs:complexType name="ReleaseResult">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Artist" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Score" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TrackCount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ReleaseResult" nillable="true" type="tns:ReleaseResult" />

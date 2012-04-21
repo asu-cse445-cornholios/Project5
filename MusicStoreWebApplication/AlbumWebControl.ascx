@@ -64,14 +64,14 @@
     </tr>
     <tr>
         <td class="a1">
-            <b>Rating:</b></td>
-        <td>
-            <asp:Label ID="lblRating" runat="server" Text="Label"></asp:Label>
-        </td>
-        <td class="a2">
-            <b>Price:</b></td>
-        <td class="a4">
             &nbsp;</td>
+        <td>
+            &nbsp;</td>
+        <td class="a2">
+            <b>Tracks:</b></td>
+        <td class="a4">
+            <asp:Label ID="lblNumTracks" runat="server" Text="Label"></asp:Label>
+        </td>
     </tr>
 </table>
 

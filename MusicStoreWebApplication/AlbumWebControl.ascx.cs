@@ -26,10 +26,16 @@ namespace MusicStoreWebApplication
             set { lblArtist.Text = value; }
         }
 
-        public string Rating
+        public string Date
         {
-            get { return lblRating.Text; }
-            set { lblRating.Text = value; }
+            get { return lblYear.Text; }
+            set { lblYear.Text = value; }
+        }
+
+        public string NumTracks
+        {
+            get { return lblNumTracks.Text; }
+            set { lblNumTracks.Text = value; }
         }
         public string Price
         {

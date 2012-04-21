@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="LabelResult" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>MusicStoreWebApplication.MusicServiceProxy.LabelResult</TypeInfo>
+   <TypeInfo>MusicStoreWebApplication.MusicServiceProxy.LabelResult, Service References.MusicServiceProxy.Reference.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>
