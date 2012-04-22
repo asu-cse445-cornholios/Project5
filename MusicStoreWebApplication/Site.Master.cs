@@ -11,7 +11,11 @@ namespace MusicStoreWebApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                NavigationMenu.Items.Remove(NavigationMenu.FindItem("RMA"));
+                NavigationMenu.Items.Remove(NavigationMenu.FindItem("ShoppingCart"));
+            }
         }
     }
 }

@@ -14,7 +14,7 @@
         <div class="header">
             <div class="title">
                 <h1>
-                    Music StOre&nbsp;
+                    Music Store&nbsp;
                 </h1>
             </div>
             <div class="loginDisplay">
@@ -29,10 +29,15 @@
                 </asp:LoginView>
             </div>
             <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" 
+                    EnableViewState="False" IncludeStyleBlock="False" Orientation="Horizontal">
                     <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
-                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" Selected="True"/>
+                        <asp:MenuItem NavigateUrl="~/ShoppingCart.aspx" Text="Shopping Cart" 
+                            Value="ShoppingCart"/>
+                        <asp:MenuItem NavigateUrl="~/RMA.aspx" Text="RMA" Value="RMA"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Administration.aspx" Text="Admin" Value="Admin">
+                        </asp:MenuItem>
                     </Items>
                 </asp:Menu>
             </div>
