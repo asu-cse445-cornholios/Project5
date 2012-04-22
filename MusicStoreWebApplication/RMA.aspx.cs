@@ -19,55 +19,60 @@ namespace MusicStoreWebApplication
 
            
            
-            {
-                RMAWebUserControl rmaCtrl;
-                System.Configuration.Configuration rootWebConfig =
-                    System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/");
-                SqlConnection conn = 
-                    new SqlConnection(rootWebConfig.ConnectionStrings.ConnectionStrings["ApplicationServices"].ToString());
+            
+            RMAWebUserControl rmaCtrl;
+            System.Configuration.Configuration rootWebConfig =
+                System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/");
+            SqlConnection conn = 
+                new SqlConnection(rootWebConfig.ConnectionStrings.ConnectionStrings["ApplicationServices"].ToString());
 
-                try {
-	                conn.Open();
-	                SqlCommand cmd = new SqlCommand();
-	                cmd.CommandText = "SELECT * FROM Orders where userName = '" +
-                        System.Web.HttpContext.Current.User.Identity.Name
-                        + "' ";
-	                cmd.Connection = conn;
-	                SqlDataReader result = cmd.ExecuteReader(); // Execute the command
+            try {
+	            conn.Open();
+	            SqlCommand cmd = new SqlCommand();
+	            cmd.CommandText = "SELECT * FROM Orders where userName = '" +
+                    System.Web.HttpContext.Current.User.Identity.Name
+                    + "' ";
+	            cmd.Connection = conn;
+	            SqlDataReader result = cmd.ExecuteReader(); // Execute the command
 
-                    while (result.Read())
+                while (result.Read())
+                {
+                    rmaCtrl = (RMAWebUserControl)LoadControl("~/RMAWebUserControl.ascx");
+                    rmaCtrl.orderId = result["id"].ToString();
+                    rmaCtrl.dateString = result["placed_at"].ToString();
+                    if (result["rmaNumber"].ToString() != "") 
                     {
-                        rmaCtrl = (RMAWebUserControl)LoadControl("~/RMAWebUserControl.ascx");
-                        rmaCtrl.orderId = result["id"].ToString();
-                        rmaCtrl.dateString = result["placed_at"].ToString();
-
-                        SqlDataAdapter adapter = 
-                            new SqlDataAdapter ("SELECT * FROM OrderItems WHERE OrderId = " + result["id"] ,
-                                rootWebConfig.ConnectionStrings.ConnectionStrings["ApplicationServices"].ToString());
-                        DataSet ds = new DataSet ();
-                        adapter.Fill (ds, "OrderItems");
-
-                        rmaCtrl.itemList.DataSource = ds;
-                        rmaCtrl.itemList.DataBind();
-
-                        placeHolder.Controls.Add(rmaCtrl);
+                        rmaCtrl.submitButton.Text = "RMA Submitted";
+                        rmaCtrl.submitButton.Enabled = false;
                     }
 
-                    if (Page.IsPostBack)
-                    {
-                        labelTitle.Text = "RMA Submitted";
-                        placeHolder.Visible = false;
-                    }
+                    SqlDataAdapter adapter = 
+                        new SqlDataAdapter ("SELECT * FROM OrderItems WHERE OrderId = " + result["id"] ,
+                            rootWebConfig.ConnectionStrings.ConnectionStrings["ApplicationServices"].ToString());
+                    DataSet ds = new DataSet ();
+                    adapter.Fill (ds, "OrderItems");
 
+                    rmaCtrl.itemList.DataSource = ds;
+                    rmaCtrl.itemList.DataBind();
 
+                    placeHolder.Controls.Add(rmaCtrl);
                 }
-                catch (SqlException ex) 
-                {  
-                    //  TODO: Handle the exception
+
+                if (Page.IsPostBack)
+                {
+                    labelTitle.Text = "RMA Submitted";
+                    placeHolder.Visible = false;
                 }
-                finally { conn.Close (); }
+
 
             }
+            catch (SqlException ex) 
+            {  
+                //  TODO: Handle the exception
+            }
+            finally { conn.Close (); }
+
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)

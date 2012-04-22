@@ -29,6 +29,12 @@ namespace MusicStoreWebApplication
             set { GridView1 = value; }
         }
 
+        public Button submitButton
+        {
+            get { return Button1; }
+            set { Button1 = value; }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Button1.Click += Button1_Click;
@@ -59,5 +65,7 @@ namespace MusicStoreWebApplication
             }
             finally { conn.Close(); }
         }
+
+    
     }
 }
