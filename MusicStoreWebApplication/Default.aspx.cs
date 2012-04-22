@@ -17,26 +17,33 @@ namespace MusicStoreWebApplication
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            Album[] albums;
-
-            if (ddlSearchType.Text == "Artist")
+            try
             {
-                albums = AlbumSearch.searchByArtist(txtSearch.Text);
+                Album[] albums;
+
+                if (ddlSearchType.Text == "Artist")
+                {
+                    albums = AlbumSearch.searchByArtist(txtSearch.Text);
+                }
+                else //ddlSearchType.Text == "Album Name")
+                {
+                    albums = AlbumSearch.searchByAlbum(txtSearch.Text);
+                }
+
+
+                foreach (var a in albums)
+                {
+                    AlbumWebControl newAlbumWebControl = (AlbumWebControl)LoadControl("~/AlbumWebControl.ascx");
+                    newAlbumWebControl.Album = a;
+                    PlaceHolder1.Controls.Add(newAlbumWebControl);
+                }
+
             }
-            else //ddlSearchType.Text == "Album Name")
+            catch
             {
-                albums = AlbumSearch.searchByAlbum(txtSearch.Text);
+                lblError.Visible = true;
+                lblError.Text = "Error processing request. Search for something else.";
             }
-
-
-            foreach (var a in albums)
-            {
-                AlbumWebControl newAlbumWebControl = (AlbumWebControl)LoadControl("~/AlbumWebControl.ascx");
-                newAlbumWebControl.Album = a;
-                PlaceHolder1.Controls.Add(newAlbumWebControl);
-            }
-
-
         }
     }
 }

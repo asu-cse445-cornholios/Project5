@@ -20,6 +20,7 @@
     <p class="style1">
         &nbsp;
         <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+        <asp:Label ID="lblError" runat="server" Visible="False"></asp:Label>
     </p>
     <span id="MySpan" runat="server"/>
 </asp:Content>
