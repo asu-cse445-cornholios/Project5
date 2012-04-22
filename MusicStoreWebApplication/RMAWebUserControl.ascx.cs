@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Data;
+using System.Data.SqlClient;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -30,12 +31,33 @@ namespace MusicStoreWebApplication
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Button1.Click += Button1_Click;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            RMALib.submitRMA(this.orderId, System.Web.HttpContext.Current.User.Identity.Name);
+            OrderSystemLibrary.RMASvc.RMAticket ticket =
+                RMALib.submitRMA(this.orderId, System.Web.HttpContext.Current.User.Identity.Name);
+            System.Configuration.Configuration rootWebConfig =
+                    System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/");
+            SqlConnection conn = 
+                    new SqlConnection(rootWebConfig.ConnectionStrings.ConnectionStrings["ApplicationServices"].ToString());
+
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = 
+                    String.Format("UPDATE Orders SET rmaNumber = '{0}' WHERE id = {1}",
+                    ticket.RMANumber, orderId.Trim());
+                cmd.Connection = conn;
+                cmd.ExecuteNonQuery(); // Execute the command
+            }
+            catch (SqlException ex)
+            {
+                //  TODO: Handle the exception
+            }
+            finally { conn.Close(); }
         }
     }
 }

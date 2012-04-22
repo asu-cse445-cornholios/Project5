@@ -17,13 +17,8 @@ namespace MusicStoreWebApplication
                 Response.Redirect("~/Account/Login.aspx");
             }
 
-            if (Page.IsPostBack)
-            {
-                labelTitle.Text = "RMA Submitted";
-                placeHolder.Controls.Clear();
-
-            }
-            else
+           
+           
             {
                 RMAWebUserControl rmaCtrl;
                 System.Configuration.Configuration rootWebConfig =
@@ -43,17 +38,25 @@ namespace MusicStoreWebApplication
                     while (result.Read())
                     {
                         rmaCtrl = (RMAWebUserControl)LoadControl("~/RMAWebUserControl.ascx");
-                        rmaCtrl.orderId = (string)result["id"];
-                        rmaCtrl.dateString = (string)result["placed_at"];
+                        rmaCtrl.orderId = result["id"].ToString();
+                        rmaCtrl.dateString = result["placed_at"].ToString();
 
                         SqlDataAdapter adapter = 
-                            new SqlDataAdapter ("SELECT * FROM OrderItems WHERE OrderId = " + (string)result["id"] + "' ",
+                            new SqlDataAdapter ("SELECT * FROM OrderItems WHERE OrderId = " + result["id"] ,
                                 rootWebConfig.ConnectionStrings.ConnectionStrings["ApplicationServices"].ToString());
                         DataSet ds = new DataSet ();
                         adapter.Fill (ds, "OrderItems");
 
                         rmaCtrl.itemList.DataSource = ds;
                         rmaCtrl.itemList.DataBind();
+
+                        placeHolder.Controls.Add(rmaCtrl);
+                    }
+
+                    if (Page.IsPostBack)
+                    {
+                        labelTitle.Text = "RMA Submitted";
+                        placeHolder.Visible = false;
                     }
 
 

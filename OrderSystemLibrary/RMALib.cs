@@ -10,7 +10,9 @@ namespace OrderSystemLibrary
         public static RMASvc.RMAticket submitRMA(string orderId, string userId)
         {
             var RMASvcClient = new RMASvc.ReqdServicesClient();
-            return RMASvcClient.submitRMA(userId, orderId);
+                return RMASvcClient.submitRMA(userId, orderId);
+
+
         }
     }
 }

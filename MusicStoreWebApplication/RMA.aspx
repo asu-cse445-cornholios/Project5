@@ -5,7 +5,6 @@
     <p>
     <asp:Label ID="labelTitle" runat="server" Font-Bold="True" Font-Names="Tahoma" 
         ForeColor="#3333CC" Text="List of orders:"></asp:Label>
-    <asp:Button ID="Button1" runat="server" Text="Button" onclick="Button1_Click" />
 </p>
 <p>
 </p>

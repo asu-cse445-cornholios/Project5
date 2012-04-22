@@ -5,7 +5,7 @@
 &nbsp;&nbsp;&nbsp; Submitted at:
     <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="Button1" runat="server" onclick="Button1_Click" 
+    <asp:Button ID="Button1" runat="server" 
         Text="Submit RMA" />
 </p>
 <p>
