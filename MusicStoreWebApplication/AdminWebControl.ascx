@@ -100,14 +100,22 @@ input.passwordEntry
             </p>
         </div>
 </asp:Panel>
-<asp:Panel ID="DeleteUser" runat="server" Visible="False" BackColor="#E9EBFE">
+<asp:Panel ID="DeleteUser" runat="server" Visible="False" BackColor="#E9EBFE" 
+    Height="323px">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Panel ID="Panel1" runat="server" BackColor="#E9EBFE" Height="188px" 
+    <asp:Panel ID="Panel1" runat="server" BackColor="#E9EBFE" Height="280px" 
         Width="411px" style="margin-left: 30px">
         <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="Large" 
             Text="Users:"></asp:Label>
         <br />
         <asp:Label ID="outputLabel" runat="server"></asp:Label>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
