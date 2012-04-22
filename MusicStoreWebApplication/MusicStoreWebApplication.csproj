@@ -59,6 +59,7 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Administration.aspx" />
+    <Content Include="AdminWebControl.ascx" />
     <Content Include="AlbumWebControl.ascx" />
     <Content Include="RMA.aspx" />
     <None Include="Service References\MusicServiceProxy\configuration91.svcinfo" />
@@ -85,6 +86,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\passwordCrypt\Service.wsdl" />
     <None Include="Service References\RMASvc\MusicStoreWebApplication.RMASvc.RMAticket.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -92,6 +94,12 @@
     <None Include="Service References\RMASvc\configuration91.svcinfo" />
     <None Include="Service References\RMASvc\configuration.svcinfo" />
     <None Include="Service References\RMASvc\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\passwordCrypt\configuration91.svcinfo" />
+    <None Include="Service References\passwordCrypt\configuration.svcinfo" />
+    <None Include="Service References\passwordCrypt\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -166,6 +174,13 @@
     <Compile Include="Administration.aspx.designer.cs">
       <DependentUpon>Administration.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminWebControl.ascx.cs">
+      <DependentUpon>AdminWebControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminWebControl.ascx.designer.cs">
+      <DependentUpon>AdminWebControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="AlbumWebControl.ascx.cs">
       <DependentUpon>AlbumWebControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -192,6 +207,11 @@
       <DependentUpon>RMA.aspx</DependentUpon>
     </Compile>
     <Compile Include="Service References\MusicServiceProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\passwordCrypt\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -234,6 +254,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\MusicServiceProxy\" />
+    <WCFMetadataStorage Include="Service References\passwordCrypt\" />
     <WCFMetadataStorage Include="Service References\RMASvc\" />
   </ItemGroup>
   <ItemGroup>

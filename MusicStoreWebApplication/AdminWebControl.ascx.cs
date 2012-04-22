@@ -29,15 +29,14 @@ namespace MusicStoreWebApplication
 
         protected void LoginButton_Click(object sender, EventArgs e)
         {
-            passwordCrypt.ServiceSoapClient client = new passwordCrypt.ServiceSoapClient();
-
             string name = acctName.Text;
             string pass = acctPassword.Text;
 
             string nameSettings = WebConfigurationManager.AppSettings["name"];
             string passSettings = WebConfigurationManager.AppSettings["password"];
 
-            string decryptPass = client.Decrypt(passSettings);
+            OrderSystemLibrary.AdminLib admin = new OrderSystemLibrary.AdminLib();
+            string decryptPass = admin.decryption(passSettings);
 
             if (name == nameSettings && pass == decryptPass)
             {
@@ -62,7 +61,6 @@ namespace MusicStoreWebApplication
             deleteBox.Text = "";
 
             getUsers();
-
         }
 
         protected void getUsers()
