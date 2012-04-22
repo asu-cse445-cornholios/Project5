@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="MusicStoreWebApplication._Default" %>
 
+<%@ Register TagPrefix="My" TagName="EventUserControl" Src="AlbumWebControl.ascx" %>
+
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     <style type="text/css">
     </style>

@@ -4,43 +4,41 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using OrderSystemLibrary;
 
 namespace MusicStoreWebApplication
 {
     public partial class AlbumWebControl : System.Web.UI.UserControl
     {
+        private Album _album;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        public string AlbumName
+        public AlbumWebControl()
         {
-            get { return lblAlbumName.Text; }
-            set { lblAlbumName.Text = value; }
         }
 
-        public string Artist
+        public OrderSystemLibrary.Album Album
         {
-            get { return lblArtist.Text; }
-            set { lblArtist.Text = value; }
+            get
+            {
+                return _album;
+            }
+            set
+            {
+                _album = value;
+                lblAlbumName.Text = value.Name;
+                lblArtist.Text = value.Artist;
+                lblNumTracks.Text = value.TrackCount.ToString();
+                lblPrice.Text = "$" + value.Price.ToString();
+                lblYear.Text = value.Date;
+                btnPurchase.OnClientClick = "javascript:purchase('" + HttpUtility.UrlEncode(value.Name) + "');return False;";
+            }
         }
 
-        public string Date
-        {
-            get { return lblYear.Text; }
-            set { lblYear.Text = value; }
-        }
 
-        public string NumTracks
-        {
-            get { return lblNumTracks.Text; }
-            set { lblNumTracks.Text = value; }
-        }
-        public string Price
-        {
-            get { return lblPrice.Text; }
-            set { lblPrice.Text = value; }
-        }
     }
 }

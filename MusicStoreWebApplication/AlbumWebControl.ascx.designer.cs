@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MusicStoreWebApplication {
-    
-    
-    public partial class AlbumWebControl {
-        
+namespace MusicStoreWebApplication
+{
+
+
+    public partial class AlbumWebControl
+    {
+
         /// <summary>
         /// lblAlbumName control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace MusicStoreWebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAlbumName;
-        
+
         /// <summary>
         /// lblPrice control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace MusicStoreWebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPrice;
-        
+
         /// <summary>
         /// lblArtist control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace MusicStoreWebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblArtist;
-        
+
         /// <summary>
         /// lblYear control.
         /// </summary>
@@ -47,16 +49,16 @@ namespace MusicStoreWebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblYear;
-        
+
         /// <summary>
-        /// Button1 control.
+        /// btnPurchase control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-        
+        protected global::System.Web.UI.WebControls.Button btnPurchase;
+
         /// <summary>
         /// lblNumTracks control.
         /// </summary>

@@ -30,6 +30,11 @@
         text-align: center;
     }
 </style>
+<script type="text/javascript" language="javascript">
+    function purchase(name) {
+        document.location.href = "ShoppingCart.aspx?Add=" + encodeURIComponent(name);
+    }
+</script>
 <table style="border: thin solid #000000; margin: 10px 0px 10px 0px; width:100%; padding-right: 10px; padding-left: 10px;" 
     bgcolor="#E9EBFE">
     <tr>
@@ -58,8 +63,8 @@
             <asp:Label ID="lblYear" runat="server" Text="Label"></asp:Label>
         </td>
         <td rowspan="2" class="a3">
-            <asp:Button ID="Button1" runat="server" Text="Purchase" 
-                style="text-align: center" />
+            <asp:Button ID="btnPurchase" runat="server" Text="Purchase" 
+                style="text-align: center" UseSubmitBehavior="False" />
         </td>
     </tr>
     <tr>

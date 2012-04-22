@@ -154,7 +154,6 @@
     </Compile>
     <Compile Include="AdminWebControl.ascx.cs">
       <DependentUpon>AdminWebControl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AdminWebControl.ascx.designer.cs">
       <DependentUpon>AdminWebControl.ascx</DependentUpon>
