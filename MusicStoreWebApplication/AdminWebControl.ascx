@@ -101,7 +101,7 @@ input.passwordEntry
         </div>
 </asp:Panel>
 <asp:Panel ID="DeleteUser" runat="server" Visible="False" BackColor="#E9EBFE" 
-    Height="323px">
+    Height="380px">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Panel ID="Panel1" runat="server" BackColor="#E9EBFE" Height="280px" 
         Width="411px" style="margin-left: 30px">
