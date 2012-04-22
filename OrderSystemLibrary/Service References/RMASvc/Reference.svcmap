@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f794adb1-4f41-47f5-b798-5fae966314ba" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://webstrar6.fulton.asu.edu/page5/reqdServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="reqdServices.xsd" MetadataType="Schema" ID="5e7cf4cc-8e50-436e-91e4-bcdf33385ce5" SourceId="1" SourceUrl="http://webstrar6.fulton.asu.edu/page5/reqdServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="reqdServices.disco" MetadataType="Disco" ID="f1512716-565c-42fc-ab7a-1594a3c9525e" SourceId="1" SourceUrl="http://webstrar6.fulton.asu.edu/page5/reqdServices.svc?disco" />
+    <MetadataFile FileName="ReqdServices.wsdl" MetadataType="Wsdl" ID="d5099e90-1def-4326-b8b4-c12d8034f422" SourceId="1" SourceUrl="http://webstrar6.fulton.asu.edu/page5/reqdServices.svc?wsdl" />
+    <MetadataFile FileName="reqdServices1.xsd" MetadataType="Schema" ID="dd738220-eea2-4788-b36a-5aff5cc7fb14" SourceId="1" SourceUrl="http://webstrar6.fulton.asu.edu/page5/reqdServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="reqdServices2.xsd" MetadataType="Schema" ID="1e5c3224-c91e-4d55-a1fa-d48389e3adf0" SourceId="1" SourceUrl="http://webstrar6.fulton.asu.edu/page5/reqdServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="reqdServices3.xsd" MetadataType="Schema" ID="b9620ef2-f152-4b12-827a-460fa787d981" SourceId="1" SourceUrl="http://webstrar6.fulton.asu.edu/page5/reqdServices.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

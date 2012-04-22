@@ -50,6 +50,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\RMASvc\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -57,9 +62,26 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Service References\passwordCrypt\Service.wsdl" />
+    <None Include="Service References\RMASvc\OrderSystemLibrary.RMASvc.RMAticket.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RMASvc\ReqdServices.wsdl" />
+    <None Include="Service References\RMASvc\reqdServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RMASvc\reqdServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RMASvc\reqdServices2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RMASvc\reqdServices3.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\passwordCrypt\" />
+    <WCFMetadataStorage Include="Service References\RMASvc\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\passwordCrypt\configuration91.svcinfo" />
@@ -69,6 +91,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\passwordCrypt\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RMASvc\reqdServices.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RMASvc\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RMASvc\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RMASvc\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
