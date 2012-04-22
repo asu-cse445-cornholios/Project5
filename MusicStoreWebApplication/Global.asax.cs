@@ -25,7 +25,7 @@ namespace MusicStoreWebApplication
         void Application_Error(object sender, EventArgs e)
         {
             // Code that runs when an unhandled error occurs
-
+            Response.Redirect("~/ErrorPage.aspx");
         }
 
         void Session_Start(object sender, EventArgs e)
