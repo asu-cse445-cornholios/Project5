@@ -33,11 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
@@ -61,6 +66,7 @@
     <Content Include="Administration.aspx" />
     <Content Include="AdminWebControl.ascx" />
     <Content Include="AlbumWebControl.ascx" />
+    <Content Include="packages.config" />
     <None Include="Service References\MusicServiceProxy\configuration91.svcinfo" />
     <None Include="Service References\MusicServiceProxy\configuration.svcinfo" />
     <None Include="Service References\MusicServiceProxy\MusicStoreWebApplication.MusicServiceProxy.ArtistResult.datasource">
@@ -92,6 +98,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="ManageShoppingCartControl.ascx" />
     <Content Include="RMA.aspx" />
     <Content Include="RMAWebUserControl.ascx" />
     <Content Include="ShoppingCart.aspx" />
@@ -177,6 +184,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ManageShoppingCartControl.ascx.cs">
+      <DependentUpon>ManageShoppingCartControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageShoppingCartControl.ascx.designer.cs">
+      <DependentUpon>ManageShoppingCartControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RMA.aspx.cs">
