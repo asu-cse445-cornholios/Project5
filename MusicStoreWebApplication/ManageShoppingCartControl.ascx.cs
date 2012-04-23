@@ -12,14 +12,13 @@ namespace MusicStoreWebApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtUsername.Text = Context.User.Identity.Name;
             if (!IsPostBack)
             {
                 ShoppingCartContext.CreateCart(Context.User.Identity.Name);
                 var newItem = Request.QueryString["Add"];
                 if (!String.IsNullOrWhiteSpace(newItem))
                 {
-                    ShoppingCartContext.AddNewItem(Context.User.Identity.Name, newItem, 1);
+                    ShoppingCartContext.AddNewItem(Context.User.Identity.Name, HttpUtility.UrlDecode(newItem), 1);
                 }
             }
         }
@@ -28,6 +27,11 @@ namespace MusicStoreWebApplication
         {
             var success= ShoppingCartContext.SubmitOrder(Context.User.Identity.Name);
             lblSuccess.Text = success ? "Success" : "Failed";
+        }
+
+        protected void ShoppingCartLinqDataSource_ContextCreating(object sender, LinqDataSourceContextEventArgs e)
+        {
+            e.ObjectInstance = new ShoppingCartContext(Context.User.Identity.Name);
         }
     }
 }

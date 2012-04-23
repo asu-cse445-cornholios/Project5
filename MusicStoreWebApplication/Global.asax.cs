@@ -24,17 +24,19 @@ namespace MusicStoreWebApplication
 
             System.Configuration.Configuration rootWebConfig =
                 System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~/");
-            SqlConnection conn =
-                new SqlConnection(rootWebConfig.ConnectionStrings.ConnectionStrings["ApplicationServices"].ToString());
+            using (var conn =
+                new SqlConnection(rootWebConfig.ConnectionStrings.ConnectionStrings["ApplicationServices"].ToString()))
+            {
 
-            conn.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = String.Format("INSERT INTO  Visits VALUES ({0})",
-                    visitorCount);
+                conn.Open();
+                var cmd = new SqlCommand();
+                cmd.CommandText = String.Format("INSERT INTO  Visits VALUES ({0})",
+                                                visitorCount);
 
-            cmd.Connection = conn;
-            cmd.ExecuteNonQuery(); // Execute the command
-
+                cmd.Connection = conn;
+                cmd.ExecuteNonQuery(); // Execute the command
+                conn.Close();
+            }
         }
 
         void Application_Error(object sender, EventArgs e)

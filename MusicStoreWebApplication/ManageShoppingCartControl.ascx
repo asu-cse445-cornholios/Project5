@@ -16,16 +16,12 @@
 </asp:GridView>
 <asp:Button ID="Button1" runat="server" onclick="Button1_Click" 
     Text="Submit Order" />
-<asp:TextBox ID="txtUsername" runat="server" Visible="False"></asp:TextBox>
 <br />
 <asp:Label ID="lblSuccess" runat="server"></asp:Label>
 <asp:LinqDataSource ID="ShoppingCartLinqDataSource" runat="server" 
     ContextTypeName="OrderSystemLibrary.ShoppingCartContext" EntityTypeName="" 
-    Select="new (Item, Price, Quantity, Modified, Created)" TableName="CartItems" 
-    Where="ShoppingCart.Username == @ShoppingCart">
-    <WhereParameters>
-        <asp:ControlParameter ControlID="txtUsername" Name="ShoppingCart" 
-            PropertyName="Text" Type="Object" />
-    </WhereParameters>
+    Select="new (Item, Price, Quantity, Modified, Created)" 
+    TableName="CartItems" 
+    oncontextcreating="ShoppingCartLinqDataSource_ContextCreating">
 </asp:LinqDataSource>
 

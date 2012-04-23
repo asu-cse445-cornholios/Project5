@@ -27,10 +27,14 @@ namespace ShoppingCartServiceLibrary
         [OperationContract]
         IEnumerable<CartItem> GetAllCartItems();
         [OperationContract]
+        IEnumerable<CartItem> GetCartItems(string username);
+        [OperationContract]
         bool ModifyItemInCart(int shoppingCartId, int cartItemId, int quantity);
         [OperationContract]
         bool DeleteItemFromCart(int shoppingCartId, int cartItemId);
         [OperationContract]
         bool RemoveCart(int shoppingCartId);
+        [OperationContract]
+        bool RemoveCartByUsername(string username);
     }
 }

@@ -10,6 +10,12 @@ namespace OrderSystemLibrary
 {
     public class ShoppingCartContext
     {
+        private readonly string _username;
+
+        public ShoppingCartContext(string username)
+        {
+            _username = username;
+        }
         public IEnumerable<ShoppingCart> ShoppingCarts
         {
             get
@@ -17,7 +23,14 @@ namespace OrderSystemLibrary
                 var proxy = new ShoppingCartProxy.ShoppingCartServiceClient();
                 var carts = proxy.GetAllCarts();
                 proxy.Close();
-                return carts;
+                if (carts != null)
+                {
+                    return carts;
+                }
+                else
+                {
+                    return new List<ShoppingCart>();
+                }
             }
         }
 
@@ -26,9 +39,16 @@ namespace OrderSystemLibrary
             get
             {
                 var proxy = new ShoppingCartProxy.ShoppingCartServiceClient();
-                var cartItems = proxy.GetAllCartItems();
+                var cartItems = proxy.GetCartItems(_username);
                 proxy.Close();
-                return cartItems;
+                if (cartItems != null)
+                {
+                    return cartItems;
+                }
+                else
+                {
+                    return new List<CartItem>();
+                }
             }
         }
 
@@ -49,21 +69,30 @@ namespace OrderSystemLibrary
         public static bool SubmitOrder(string username)
         {
             var proxy = new ShoppingCartProxy.ShoppingCartServiceClient();
-            var cart = proxy.GetCartByUsername(username);
-            bool success;
+            var cartItems = proxy.GetCartItems(username);
+            bool success = false;
+            if (cartItems != null && cartItems.Length > 0)
             using (var db = new OrderSystemEntities())
             {
                 var order = new Order {placed_at = DateTime.Now, userName = username};
-                foreach (var cartItem in cart.CartItems)
+                db.AddToOrders(order);
+                foreach (var cartItem in cartItems)
                 {
                     var orderItem = new OrderItem();
+                    orderItem.Created = cartItem.Created;
                     orderItem.ItemName = cartItem.Item;
                     orderItem.Modified = cartItem.Modified;
                     orderItem.Price = cartItem.Price;
                     orderItem.Quantity = cartItem.Quantity;
+                    orderItem.Order = order;
                     order.OrderItems.Add(orderItem);
+                    db.AddToOrderItems(orderItem);
                 }
                 success = db.SaveChanges() > 0;
+            }
+            if(success)
+            {
+                proxy.RemoveCartByUsername(username);
             }
             proxy.Close();
             return success;

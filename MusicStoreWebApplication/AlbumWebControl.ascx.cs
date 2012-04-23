@@ -35,7 +35,7 @@ namespace MusicStoreWebApplication
                 lblNumTracks.Text = value.TrackCount.ToString();
                 lblPrice.Text = "$" + value.Price.ToString();
                 lblYear.Text = value.Date;
-                btnPurchase.OnClientClick = "javascript:purchase('" + HttpUtility.UrlEncode(value.Name) + "');return False;";
+                btnPurchase.OnClientClick = "javascript:purchase('" + HttpUtility.UrlEncode(value.Name) + "');return false;";
             }
         }
 

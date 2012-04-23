@@ -307,6 +307,9 @@ namespace OrderSystemLibrary.ShoppingCartProxy {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingCartService/GetAllCartItems", ReplyAction="http://tempuri.org/IShoppingCartService/GetAllCartItemsResponse")]
         OrderSystemLibrary.ShoppingCartProxy.CartItem[] GetAllCartItems();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingCartService/GetCartItems", ReplyAction="http://tempuri.org/IShoppingCartService/GetCartItemsResponse")]
+        OrderSystemLibrary.ShoppingCartProxy.CartItem[] GetCartItems(string username);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingCartService/ModifyItemInCart", ReplyAction="http://tempuri.org/IShoppingCartService/ModifyItemInCartResponse")]
         bool ModifyItemInCart(int shoppingCartId, int cartItemId, int quantity);
         
@@ -315,6 +318,9 @@ namespace OrderSystemLibrary.ShoppingCartProxy {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingCartService/RemoveCart", ReplyAction="http://tempuri.org/IShoppingCartService/RemoveCartResponse")]
         bool RemoveCart(int shoppingCartId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingCartService/RemoveCartByUsername", ReplyAction="http://tempuri.org/IShoppingCartService/RemoveCartByUsernameResponse")]
+        bool RemoveCartByUsername(string username);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -376,6 +382,10 @@ namespace OrderSystemLibrary.ShoppingCartProxy {
             return base.Channel.GetAllCartItems();
         }
         
+        public OrderSystemLibrary.ShoppingCartProxy.CartItem[] GetCartItems(string username) {
+            return base.Channel.GetCartItems(username);
+        }
+        
         public bool ModifyItemInCart(int shoppingCartId, int cartItemId, int quantity) {
             return base.Channel.ModifyItemInCart(shoppingCartId, cartItemId, quantity);
         }
@@ -386,6 +396,10 @@ namespace OrderSystemLibrary.ShoppingCartProxy {
         
         public bool RemoveCart(int shoppingCartId) {
             return base.Channel.RemoveCart(shoppingCartId);
+        }
+        
+        public bool RemoveCartByUsername(string username) {
+            return base.Channel.RemoveCartByUsername(username);
         }
     }
 }

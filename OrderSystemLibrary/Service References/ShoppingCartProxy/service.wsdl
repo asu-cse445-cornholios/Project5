@@ -55,6 +55,12 @@
   <wsdl:message name="IShoppingCartService_GetAllCartItems_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllCartItemsResponse" />
   </wsdl:message>
+  <wsdl:message name="IShoppingCartService_GetCartItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartItems" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingCartService_GetCartItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartItemsResponse" />
+  </wsdl:message>
   <wsdl:message name="IShoppingCartService_ModifyItemInCart_InputMessage">
     <wsdl:part name="parameters" element="tns:ModifyItemInCart" />
   </wsdl:message>
@@ -72,6 +78,12 @@
   </wsdl:message>
   <wsdl:message name="IShoppingCartService_RemoveCart_OutputMessage">
     <wsdl:part name="parameters" element="tns:RemoveCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingCartService_RemoveCartByUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCartByUsername" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingCartService_RemoveCartByUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCartByUsernameResponse" />
   </wsdl:message>
   <wsdl:portType name="IShoppingCartService">
     <wsdl:operation name="AddItemToCart">
@@ -106,6 +118,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IShoppingCartService/GetAllCartItems" message="tns:IShoppingCartService_GetAllCartItems_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IShoppingCartService/GetAllCartItemsResponse" message="tns:IShoppingCartService_GetAllCartItems_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetCartItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingCartService/GetCartItems" message="tns:IShoppingCartService_GetCartItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingCartService/GetCartItemsResponse" message="tns:IShoppingCartService_GetCartItems_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ModifyItemInCart">
       <wsdl:input wsaw:Action="http://tempuri.org/IShoppingCartService/ModifyItemInCart" message="tns:IShoppingCartService_ModifyItemInCart_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IShoppingCartService/ModifyItemInCartResponse" message="tns:IShoppingCartService_ModifyItemInCart_OutputMessage" />
@@ -117,6 +133,10 @@
     <wsdl:operation name="RemoveCart">
       <wsdl:input wsaw:Action="http://tempuri.org/IShoppingCartService/RemoveCart" message="tns:IShoppingCartService_RemoveCart_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IShoppingCartService/RemoveCartResponse" message="tns:IShoppingCartService_RemoveCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCartByUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingCartService/RemoveCartByUsername" message="tns:IShoppingCartService_RemoveCartByUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingCartService/RemoveCartByUsernameResponse" message="tns:IShoppingCartService_RemoveCartByUsername_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IShoppingCartService" type="tns:IShoppingCartService">
@@ -193,6 +213,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetCartItems">
+      <soap:operation soapAction="http://tempuri.org/IShoppingCartService/GetCartItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ModifyItemInCart">
       <soap:operation soapAction="http://tempuri.org/IShoppingCartService/ModifyItemInCart" style="document" />
       <wsdl:input>
@@ -213,6 +242,15 @@
     </wsdl:operation>
     <wsdl:operation name="RemoveCart">
       <soap:operation soapAction="http://tempuri.org/IShoppingCartService/RemoveCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCartByUsername">
+      <soap:operation soapAction="http://tempuri.org/IShoppingCartService/RemoveCartByUsername" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

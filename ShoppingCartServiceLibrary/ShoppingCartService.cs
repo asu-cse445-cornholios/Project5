@@ -43,7 +43,7 @@ namespace ShoppingCartServiceLibrary
         {
             using (var db = new ShoppingCartContext())
             {
-                var shoppingCart = (from c in db.ShoppingCarts.Include("CartItems")
+                var shoppingCart = (from c in db.ShoppingCarts
                                     where c.Username == username
                                     select c).FirstOrDefault();
                 if (shoppingCart != null)
@@ -90,7 +90,7 @@ namespace ShoppingCartServiceLibrary
         {
             using (var db = new ShoppingCartContext())
             {
-                var q = from c in db.ShoppingCarts.Include("CartItems")
+                var q = from c in db.ShoppingCarts
                         where c.Username == username
                         select c;
                 ShoppingCart shoppingCart = q.FirstOrDefault();
@@ -110,7 +110,7 @@ namespace ShoppingCartServiceLibrary
         {
             using (var db = new ShoppingCartContext())
             {
-                var q = from c in db.ShoppingCarts.Include("CartItems")
+                var q = from c in db.ShoppingCarts
                         where c.ShoppingCartId == shoppingCartId
                         select c;
                 return q.FirstOrDefault();
@@ -121,7 +121,7 @@ namespace ShoppingCartServiceLibrary
         {
             using (var db = new ShoppingCartContext())
             {
-                var q = from c in db.ShoppingCarts.Include("CartItems")
+                var q = from c in db.ShoppingCarts
                         where c.Username == username
                         select c;
                 return q.FirstOrDefault();
@@ -132,9 +132,9 @@ namespace ShoppingCartServiceLibrary
         {
             using (var db = new ShoppingCartContext())
             {
-                var q = from c in db.ShoppingCarts.Include("CartItems")
+                var q = from c in db.ShoppingCarts
                         select c;
-                return q.ToArray(); ;
+                return q.ToArray();
             }
         }
 
@@ -142,7 +142,18 @@ namespace ShoppingCartServiceLibrary
         {
             using (var db = new ShoppingCartContext())
             {
-                var q = from i in db.CartItems.Include("ShoppingCart")
+                var q = from i in db.CartItems
+                        select i;
+                return q.ToArray();
+            }
+        }
+
+        public IEnumerable<CartItem> GetCartItems(string username)
+        {
+            using (var db = new ShoppingCartContext())
+            {
+                var q = from i in db.CartItems
+                        where i.ShoppingCart.Username == username
                         select i;
                 return q.ToArray();
             }
@@ -191,6 +202,20 @@ namespace ShoppingCartServiceLibrary
             {
                 var shoppingCart = (from c in db.ShoppingCarts.Include("CartItems")
                                     where c.ShoppingCartId == shoppingCartId
+                                    select c).FirstOrDefault();
+                if (shoppingCart != null)
+                {
+                    db.ShoppingCarts.Remove(shoppingCart);
+                }
+                return db.SaveChanges() > 0;
+            }
+        }
+        public bool RemoveCartByUsername(string username)
+        {
+            using (var db = new ShoppingCartContext())
+            {
+                var shoppingCart = (from c in db.ShoppingCarts.Include("CartItems")
+                                    where c.Username == username
                                     select c).FirstOrDefault();
                 if (shoppingCart != null)
                 {

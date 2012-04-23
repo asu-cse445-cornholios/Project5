@@ -113,6 +113,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetCartItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCartItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ShoppingCartServiceLibrary" minOccurs="0" name="GetCartItemsResult" nillable="true" type="q5:ArrayOfCartItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ModifyItemInCart">
     <xs:complexType>
       <xs:sequence>
@@ -155,6 +169,20 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="RemoveCartResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveCartByUsername">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveCartByUsernameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveCartByUsernameResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
