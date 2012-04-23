@@ -32,6 +32,13 @@ namespace OrderSystemLibrary
             }
         }
 
+        public static void CreateCart(string username)
+        {
+            var proxy = new ShoppingCartProxy.ShoppingCartServiceClient();
+            proxy.CreateCart(username);
+            proxy.Close();
+        }
+
         public static void AddNewItem(string username, string item, int quantity)
         {
             var proxy = new ShoppingCartProxy.ShoppingCartServiceClient();

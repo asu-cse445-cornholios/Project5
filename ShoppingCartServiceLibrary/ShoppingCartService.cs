@@ -90,10 +90,18 @@ namespace ShoppingCartServiceLibrary
         {
             using (var db = new ShoppingCartContext())
             {
-                // Create new shopping cart
-                var shoppingCart = new ShoppingCart { Username = username, Created = DateTime.Now, Modified = DateTime.Now };
-                db.ShoppingCarts.Add(shoppingCart);
-                db.SaveChanges();
+                var q = from c in db.ShoppingCarts.Include("CartItems")
+                        where c.Username == username
+                        select c;
+                ShoppingCart shoppingCart = q.FirstOrDefault();
+                if (shoppingCart == null)
+                {
+                    // Create new shopping cart
+                    shoppingCart = new ShoppingCart
+                                       {Username = username, Created = DateTime.Now, Modified = DateTime.Now};
+                    db.ShoppingCarts.Add(shoppingCart);
+                    db.SaveChanges();
+                }
                 return shoppingCart.ShoppingCartId;
             }
         }
@@ -126,7 +134,7 @@ namespace ShoppingCartServiceLibrary
             {
                 var q = from c in db.ShoppingCarts.Include("CartItems")
                         select c;
-                return q;
+                return q.ToArray(); ;
             }
         }
 
@@ -136,7 +144,7 @@ namespace ShoppingCartServiceLibrary
             {
                 var q = from i in db.CartItems.Include("ShoppingCart")
                         select i;
-                return q;
+                return q.ToArray();
             }
         }
 
